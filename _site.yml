@@ -1,8 +1,8 @@
 name: "."
-title: "Making messages"
+title: "IDA"
 description: |
-  Making messages
-output_dir: "_site"
+  IDA description
+output_dir: "."
 navbar:
   right:
     - text: "Home"

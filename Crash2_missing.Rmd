@@ -1,6 +1,9 @@
 ---
 title: "Missing data"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
