@@ -1,0 +1,11 @@
+---
+title: "About this site"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Source repo: <https://github.com/bailliem/ida22>
+
+Made with distill: ["documentation" site](https://rstudio.github.io/distill/) | ["reference" site (pkgdown)](https://pkgs.rstudio.com/distill/)
