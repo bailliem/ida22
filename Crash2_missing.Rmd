@@ -47,29 +47,37 @@ a_crash2 %>%
     pct_miss = md("**Missing (%)**")
   ) %>%
   gt::fmt_number(
-    columns = vars(pct_miss),
+    columns = c(pct_miss),
     decimals = 2
   )
 
 ```
 
+Display
 
 ```{r, message =FALSE, warning =FALSE , echo=FALSE}
 a_crash2 %>%
   select(-time2death,-ddeath, -entryid, -trandomised, -earlydeath) %>%
-  gg_miss_var(show_pct = TRUE)
+  gg_miss_var(show_pct = TRUE) +
+  theme_minimal(base_size = 12) +
+  ggtitle("Number of missing observations per variable")
 ```
 
 
 
 ## Missingness patterns over variables
 
+Each row is a patient and each column is a measurement. Black indicates a missing observation. 
 
 ```{r, message =FALSE, warning =FALSE , echo=FALSE}
 a_crash2 %>%
   select(-time2death,-ddeath, -entryid, -trandomised, -earlydeath) %>%
-  naniar::vis_miss(sort_miss = TRUE, show_perc_col = TRUE) 
+  naniar::vis_miss(sort_miss = TRUE, show_perc_col = TRUE) +
+  theme_minimal(base_size = 12) +
+  ggtitle("Number of missing observations per variable")
 ```
+
+Distribution of missing values per patients. 
 
 ```{r, message =FALSE, warning =FALSE , echo=FALSE}
 a_crash2 %>%
@@ -77,6 +85,7 @@ a_crash2 %>%
   gg_miss_case()
 ```
 
+Relationship of missing values per patient per observation. 
 
 ```{r, message =FALSE, warning =FALSE , echo=FALSE}
 a_crash2 %>%
