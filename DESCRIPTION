@@ -9,7 +9,9 @@ Authors@R:
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
+    dplyr,
     DT,
+    ggplot2,
     glue,
     gt,
     here,
