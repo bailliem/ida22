@@ -18,6 +18,7 @@ Imports:
     Hmisc,
     kableExtra,
     naniar,
+    patchwork,
     rlang
 Encoding: UTF-8
 LazyData: true

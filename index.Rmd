@@ -19,3 +19,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * [Intro](01-intro.html)
 * [Missing](Crash2_missing.html)
+* [Univariate](Crash2_univar.html)
