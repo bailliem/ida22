@@ -87,29 +87,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>IDA: Index</title>
+  <title>IDA: Univariate checks</title>
   
-  <meta property="description" itemprop="description" content="Welcome to the website. I hope you enjoy it!"/>
   
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="IDA: Index"/>
+  <meta property="og:title" content="IDA: Univariate checks"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Welcome to the website. I hope you enjoy it!"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="IDA"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="IDA: Index"/>
-  <meta property="twitter:description" content="Welcome to the website. I hope you enjoy it!"/>
+  <meta property="twitter:title" content="IDA: Univariate checks"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output","site"]}},"value":[{"type":"character","attributes":{},"value":["Index"]},{"type":"character","attributes":{},"value":["Welcome to the website. I hope you enjoy it!\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","anchor_sections"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["Univariate checks"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2056,7 +2053,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Index","description":"Welcome to the website. I hope you enjoy it!","authors":[]}
+{"title":"Univariate checks","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2078,20 +2075,539 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Index</h1>
+<h1>Univariate checks</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to the website. I hope you enjoy it!</p></p>
+
 </div>
 
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
 <ul>
-<li><a href="01-intro.html">Intro</a></li>
-<li><a href="Crash2_missing.html">Missing</a></li>
-<li><a href="Crash2_univar.html">Univariate</a></li>
+<li><a href="#univariate-distribution-checks">Univariate distribution checks</a><ul>
+<li><a href="#data-set-overview">Data set overview</a><ul>
+<li><a href="#demographic-variables">Demographic variables</a></li>
+<li><a href="#physiological-measurements">Physiological measurements</a></li>
+<li><a href="#characteristics-of-injury">Characteristics of injury</a></li>
+</ul></li>
+<li><a href="#categorical-variables">Categorical variables</a><ul>
+<li><a href="#categorical-ordinal-plots">Categorical ordinal plots</a></li>
+</ul></li>
+<li><a href="#continuous-variables">Continuous variables</a><ul>
+<li><a href="#age">Age</a></li>
+<li><a href="#blood-pressure">Blood pressure</a></li>
+<li><a href="#respiratory-rate">Respiratory rate</a></li>
+<li><a href="#heart-rate">Heart rate</a></li>
+<li><a href="#central-capillary-refill-time">Central capillary refill time</a></li>
+<li><a href="#hours-since-injury">Hours since injury</a></li>
+</ul></li>
+<li><a href="#section-session-info">Section session info</a></li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</nav>
+</div>
+<h1 id="univariate-distribution-checks">Univariate distribution checks</h1>
+<p>This section reports a series of univariate summary checks of the CRASH-2 dataset.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="data-set-overview">Data set overview</h2>
+<p>Using the <a href="https://cran.r-project.org/web/packages/Hmisc/">Hmisc</a> describe function, we provide an overview of the data set. The descriptive report also provides histograms of continuous variables. For ease of scanning the information, we group the report by measurement type.</p>
+<h3 id="demographic-variables">Demographic variables</h3>
+<div class="layout-chunk" data-layout="l-body">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<script type="text/javascript">
+<!--
+    function expand_collapse(id) {
+       var e = document.getElementById(id);
+       var f = document.getElementById(id+"_earrows");
+       if(e.style.display == 'none'){
+          e.style.display = 'block';
+          f.innerHTML = '&#9650';
+       }
+       else {
+          e.style.display = 'none';
+          f.innerHTML = '&#9660';
+       }
+    }
+//-->
+</script>
+<style>
+.earrows {color:silver;font-size:11px;}
+
+fcap {
+ font-family: Verdana;
+ font-size: 12px;
+ color: MidnightBlue
+ }
+
+smg {
+ font-family: Verdana;
+ font-size: 10px;
+ color: &#808080;
+}
+
+hr.thinhr { margin-top: 0.15em; margin-bottom: 0.15em; }
+
+span.xscript {
+position: relative;
+}
+span.xscript sub {
+position: absolute;
+left: 0.1em;
+bottom: -1ex;
+}
+</style>
+ <font color="MidnightBlue"><div align=center><span style="font-weight:bold">Demographic variables <br><br> 2  Variables   20207  Observations</span></div></font> <hr class="thinhr"> <span style="font-weight:bold">age</span>: Age <span style='font-family:Verdana;font-size:75%;'>years</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAJcAAAANCAMAAACTvAxuAAAB+1BMVEUAAAABAQECAgIDAwMEBAQFBQUGBgYHBwcICAgJCQkKCgoMDAwNDQ0ODg4PDw8QEBARERESEhIUFBQVFRUWFhYXFxcZGRkbGxscHBwdHR0eHh4fHx8gICAhISEiIiIjIyMkJCQlJSUmJiYnJycoKCgpKSkrKystLS0uLi4vLy8wMDAxMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6Ojo7Ozs8PDw9PT0+Pj4/Pz9BQUFCQkJDQ0NFRUVGRkZISEhKSkpLS0tMTExNTU1RUVFSUlJVVVVYWFhZWVlbW1tcXFxdXV1eXl5hYWFiYmJjY2NmZmZnZ2dqampra2tsbGxtbW1ubm5wcHBycnJzc3N0dHR1dXV3d3d5eXl6enp7e3t8fHyAgICFhYWIiIiJiYmKioqLi4uPj4+Tk5OUlJSWlpaXl5eYmJiampqfn5+goKChoaGjo6OlpaWpqamsrKytra2urq6wsLCysrKzs7O0tLS1tbW3t7e4uLi8vLy+vr6/v7/BwcHDw8PExMTGxsbKysrMzMzNzc3Pz8/R0dHS0tLT09PV1dXW1tbY2NjZ2dna2trc3Nzg4ODh4eHi4uLj4+Pm5ubo6Ojq6urr6+vs7Ozu7u7w8PDx8fHz8/P19fX29vb39/f4+Pj5+fn6+vr8/Pz9/f3+/v7////PQKnXAAACGklEQVQ4jcXV21cSURgF8D0oCGUI5TCIhozGTQQcGkCpIM3SBKXsYmZlVnYzu6mVXaELhVlNlhXTbSqr+TPD06IHjaRlxn7ZD+c7Z/3W93KQKShsO6k+VWHjyw/kgrKhg9ThssLGl58lXCKbkr/IC13ve16tMOvPrnvSNMaeqm/OSvMu8VrO9QDXSXedK4rrLXXiMsbuwskrazvE5BAlLXBVxYvieg2+GtEu2BpQE1DSAXzIutITi1ynPCvgEvJlMn0fDTRsZlisMDpQ0QgurBI6KwVhAqNkxLCDVEz780Yi71t/n7z7+qrs7oTPCHc92RcHPY8Sf5m82yCkR3F1Tt45mNvXfj2pFFL/cF/5DubgL/+Niw7TFM8iuO2YvX3etevGL1cCCdKfvhXBBb4S3lo47WCbq5ju9KrogZm9+qnbp7c8y7nYIVLJkeK4LB4YAgpNAOoWncJvQlsER4aZvosP9b2P5NlbctxE3nne8ob02cf/0bURGj/AV8BngssKqwsmntI1lzJby/lW48EzJ4enz+PKk5FLyUn1oRd3xHefX06J0kdJ/j6zlCv7F8XGF31PPUdbwa2G2wCnBfV2mBqha0IJp4J3LVw1sFlhdoH2QMMBXi3cDBx1qLODcUPrBTg1PDRcZjicYJuwjoMqsIYKrdcELYqgrzQUUWyOVvO9YW7f9k39sVD/nsjA8czAYFv8QiYzHssCfgCI5/QnYFqc3wAAAABJRU5ErkJggg==" alt="image" /></div> <style>
+ .hmisctable166900 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable166900 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable166900 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable166900">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>20203</td><td>4</td><td>84</td><td>0.999</td><td>34.56</td><td>15.55</td><td>18</td><td>19</td><td>24</td><td>30</td><td>43</td><td>55</td><td>64</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :  1 14 15 16 17 ,  <font color="MidnightBlue">highest</font>: 92 94 95 96 99</span> <hr class="thinhr"> <span style="font-weight:bold">sex</span>: Sex <style>
+ .hmisctable222568 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable222568 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable222568 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable222568">
+ <tr><th>n</th><th>missing</th><th>distinct</th></tr>
+ <tr><td>20206</td><td>1</td><td>2</td></tr>
+ </table>
+ <pre style="font-size:85%;">
+ Value        male female
+ Frequency   16935   3271
+ Proportion  0.838  0.162
+ </pre>
+ <hr class="thinhr">
+</div>
+<h3 id="physiological-measurements">Physiological measurements</h3>
+<div class="layout-chunk" data-layout="l-body">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<script type="text/javascript">
+<!--
+    function expand_collapse(id) {
+       var e = document.getElementById(id);
+       var f = document.getElementById(id+"_earrows");
+       if(e.style.display == 'none'){
+          e.style.display = 'block';
+          f.innerHTML = '&#9650';
+       }
+       else {
+          e.style.display = 'none';
+          f.innerHTML = '&#9660';
+       }
+    }
+//-->
+</script>
+<style>
+.earrows {color:silver;font-size:11px;}
+
+fcap {
+ font-family: Verdana;
+ font-size: 12px;
+ color: MidnightBlue
+ }
+
+smg {
+ font-family: Verdana;
+ font-size: 10px;
+ color: &#808080;
+}
+
+hr.thinhr { margin-top: 0.15em; margin-bottom: 0.15em; }
+
+span.xscript {
+position: relative;
+}
+span.xscript sub {
+position: absolute;
+left: 0.1em;
+bottom: -1ex;
+}
+</style>
+ <font color="MidnightBlue"><div align=center><span style="font-weight:bold">Physiological measurements <br><br> 5  Variables   20207  Observations</span></div></font> <hr class="thinhr"> <span style="font-weight:bold">sbp</span>: Systolic Blood Pressure <span style='font-family:Verdana;font-size:75%;'>mmHg</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAJcAAAANCAMAAACTvAxuAAABlVBMVEUAAAABAQECAgIEBAQFBQUHBwcICAgKCgoNDQ0ODg4QEBARERETExMVFRUWFhYYGBgaGhobGxsdHR0eHh4fHx8gICAhISEiIiIlJSUmJiYnJycoKCgpKSkqKiorKyssLCwtLS0uLi4vLy8wMDAzMzM1NTU2NjY4ODg5OTk6Ojo7Ozs8PDw9PT0+Pj5AQEBBQUFGRkZHR0dISEhJSUlKSkpLS0tMTExNTU1OTk5RUVFSUlJTU1NVVVVXV1dYWFhZWVlaWlpbW1tcXFxfX19hYWFkZGRmZmZnZ2doaGhqamptbW1ubm50dHR7e3t/f3+AgICCgoKIiIiPj4+RkZGSkpKXl5eYmJibm5uhoaGioqKjo6OlpaWoqKipqamqqqqtra2wsLCxsbGzs7O0tLS2tra9vb3ExMTFxcXHx8fIyMjMzMzNzc3Ozs7Pz8/R0dHU1NTV1dXW1tbX19fa2trd3d3f39/g4ODh4eHi4uLj4+Pl5eXr6+vu7u7y8vL29vb39/f4+Pj5+fn6+vr8/Pz9/f3+/v7///9fpRkwAAABbklEQVQ4jWOoJgfImJGljQTA0EYOULAmSxsJgBJ3uaRS1SkogFR3NdSCSIi7GP2o7hw4INVdHuogcvC5y04aRCK7q4HKLoIAhmLSgKk4iJQ0BJGMXkAinTWKRCOIAhSHVwFDLJCsDW+hcngRrTJBuxW3u+IZiujvrrpYkIsCGJpxuyuOIR9IRkrQ1V2JYEth7motwukuP7Bp/va0dFdcGZCody1tA0VSXj3EXTFldtIpDKER0lZNufLVjH6FaW3ZDNFtFflAd1U2gd1V02IjB9LvHgQiE6pAZCMZ7gLWRc7x1UmmZiXV1SGeOUDKzcony8iYRdvB0kyXQdXGVFuLQYdH11SJgV+SWU6Gn4+BgYlXTEqQgZtRWVFQhJmBS0NRWJZBll1FXZSBU41DU0FIi1NdRUDJQk9Rh0ndytJMn03LxsnBSMDAxM7RUt2s3C450DsTSNmHVmeaV9gmBftWl5jl+IRVZ5hXAJ0T7wwkABhhnC06u3viAAAAAElFTkSuQmCC" alt="image" /></div> <style>
+ .hmisctable556555 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable556555 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable556555 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable556555">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>19887</td><td>320</td><td>173</td><td>0.989</td><td>98.45</td><td>27.86</td><td> 60</td><td> 70</td><td> 80</td><td> 95</td><td>110</td><td>130</td><td>143</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :   4  10  12  20  25 ,  <font color="MidnightBlue">highest</font>: 225 230 234 240 250</span> <hr class="thinhr"> <span style="font-weight:bold">hr</span>: Heart Rate <span style='font-family:Verdana;font-size:75%;'>/min</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAJcAAAANCAMAAACTvAxuAAABrVBMVEUAAAABAQEGBgYHBwcICAgJCQkKCgoODg4PDw8QEBAREREUFBQVFRUWFhYXFxcYGBgZGRkcHBwdHR0eHh4fHx8gICAhISEiIiIkJCQlJSUmJiYnJycoKCgqKiorKyssLCwuLi4vLy8wMDAxMTEzMzM1NTU2NjY4ODg5OTk8PDw9PT0+Pj4/Pz9BQUFCQkJDQ0NERERHR0dISEhKSkpLS0tMTExOTk5PT09QUFBRUVFSUlJWVlZYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2ttbW1vb29wcHBycnJ1dXV6enp7e3t8fHyCgoKDg4OFhYWPj4+RkZGSkpKVlZWWlpaampqenp6fn5+ioqKkpKSpqamrq6usrKytra2wsLC0tLS2tra8vLzAwMDCwsLDw8PExMTFxcXGxsbLy8vMzMzNzc3S0tLT09PV1dXX19fa2trc3Nzd3d3e3t7g4ODj4+Pl5eXp6enq6urr6+vt7e3w8PDy8vLz8/P09PT29vb39/f5+fn8/Pz+/v7///9nvHHGAAABjElEQVQ4je2VWTdCYRSG3xBKhqKijqHBLFMdQ44iKTKFzFPmeZ6nDCdTdH6z88WFG8vihAvei2df7O/b61n7ZoMVngHRFSnJTsKD1osojGTBCc8wnkhJ7SRcxGEURnJR91r49/oof8rrREimdgl7cUyKrJFwAiuCRr7mi/tizwlvMPnevra3BO7ra99ceYRBjL/nVWH6FS+bhuMud4aI1/JIHe81V8WlegK++4jXlu7OVEaePQ5f/5TXfpgHy2hCs+ZMwNEvg5JCwXqf2JVsUGDM34w9bhqBF68jLHy7V6MvtHe6MQi629Yg08ljRFQGkMm7ZVCAUhcHabYU8TlpSKythFFfvMqsnG/Cf8sFubO1yISH8Ce8+Fvk8LZbAqOtdLmniy61ua0mWxttbupx0nnNLnO5wyrX19YZElS5EihyxEikpIjRpgBZCkClBhRZQIo2FhKtBLGRhhxQ8w0l/zq9kBLlFyUVGpmGEonVbanxuApqOnrqLfZOhnbOHFbb51nW7h18cxqXWng8A+rWtooFiPEpAAAAAElFTkSuQmCC" alt="image" /></div> <style>
+ .hmisctable321113 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable321113 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable321113 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable321113">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>20070</td><td>137</td><td>173</td><td>0.996</td><td>104.5</td><td>23.38</td><td> 70</td><td> 80</td><td> 90</td><td>105</td><td>120</td><td>130</td><td>140</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :   3   4   5   6  10 ,  <font color="MidnightBlue">highest</font>: 190 192 198 200 220</span> <hr class="thinhr"> <span style="font-weight:bold">rr</span>: Respiratory Rate <span style='font-family:Verdana;font-size:75%;'>/min</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAJcAAAANCAMAAACTvAxuAAABpFBMVEUAAAABAQEEBAQGBgYZGRkdHR0jIyMkJCQlJSUnJycpKSkqKiosLCwtLS0uLi4vLy8wMDAyMjIzMzM1NTU2NjY3Nzc+Pj4/Pz9AQEBERERGRkZHR0dISEhJSUlLS0tMTExPT09QUFBRUVFSUlJTU1NUVFRWVlZXV1dZWVlaWlpbW1tcXFxdXV1eXl5fX19hYWFjY2NkZGRlZWVmZmZnZ2dqampra2twcHBycnJzc3N2dnZ3d3d4eHh7e3t/f3+Dg4OEhISFhYWGhoaIiIiLi4uPj4+QkJCSkpKXl5eYmJiZmZmampqbm5ucnJygoKCioqKjo6OkpKSmpqanp6eoqKipqamrq6usrKyurq6vr6+wsLCxsbGzs7O0tLS2tra4uLi5ubm6urq7u7u9vb2+vr6/v7/AwMDBwcHCwsLDw8PFxcXGxsbHx8fIyMjJycnLy8vMzMzNzc3Q0NDR0dHS0tLV1dXW1tbY2Nja2trc3Nzd3d3e3t7l5eXm5ubn5+fo6Ojq6urr6+vs7Ozx8fH19fX39/f4+Pj5+fn7+/v8/Pz+/v7////g9I0ZAAABYUlEQVQ4jdXV2TcCcRjG8ccukTV7lrSgTEXWorKv2VqEkD0KiezLLylm/mlzOpy6mlxoOr5XM3Pei8955+IF4c6G7RQT6QkMd1vwp5hIT//bFZuL8oFJ6heuD8enF0e8aBJxul76I6zrAL5D7PMF+g63HM3AtQCHFavLWGRfgxo/1/SfxrmvDQTYfe3Cy+4rYnq7gJuvdXH8x6ibTnadwnOOzXfja6Zd6wglu06ww7qCcGXUFfUwTlwluRrr4q5LrL3mnfHuogkTnqfvtFEn7JOYsKBGAuMQtFpUiGBzx13XsDM34XtliHmmY/W+dLnYW0RZZPLBoqbe3M6eHDUFFQWJHPliFFZCUA5hGYpLUCpElQgN1VCroJBm1RZA1ZGt7wKlExg0YoNMblaLje2tNqJYITqztHuJ9FmJbpoMzMbPXaD5gZCRcWIeS5zAqeGfp8eW4yepSd+2R4hdqxyl2E9fPjC55yhb8cMAAAAASUVORK5CYII=" alt="image" /></div> <style>
+ .hmisctable539603 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable539603 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable539603 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable539603">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>20016</td><td>191</td><td>68</td><td>0.99</td><td>23.06</td><td>7.052</td><td>14</td><td>16</td><td>20</td><td>22</td><td>26</td><td>30</td><td>35</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :  1  2  3  4  5 ,  <font color="MidnightBlue">highest</font>: 90 91 94 95 96</span> <hr class="thinhr"> <span style="font-weight:bold">gcs</span>: Glasgow Coma Score Total <span style='font-family:Verdana;font-size:75%;'>points</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAACgAAAANCAMAAADsQdzaAAAAjVBMVEUAAAABAQETExMUFBQVFRUXFxcYGBggICA3Nzc7Ozs/Pz9AQEBjY2NkZGRlZWVra2tsbGxtbW2IiIiJiYmLi4uPj4+UlJSWlpaXl5ecnJydnZ2jo6OwsLCysrK7u7u/v7/KysrMzMzW1tbY2NjZ2dna2trc3Nzd3d3h4eHp6enr6+vt7e339/f9/f3///9mB698AAAAdUlEQVQokdXRSxKCMBRE0aeiED6KCvghCCYK2oTe//KUHWRmecdn0FUt8EopoVdJ8hfw6VUU/WbjbfCBNbjZz7Cq+Grp7nQnN+WG2tIYdhe+r+zDfpQzg90MlcJ2jXIxNNJYOSLIEMdIVyjkoUVbOWCZfr/+AE60Uddf/Y/9AAAAAElFTkSuQmCC" alt="image" /></div> <style>
+ .hmisctable659593 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable659593 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable659593 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable659593">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>20184</td><td>23</td><td>13</td><td>0.863</td><td>12.47</td><td>3.594</td><td> 4</td><td> 6</td><td>11</td><td>15</td><td>15</td><td>15</td><td>15</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :  3  4  5  6  7 ,  <font color="MidnightBlue">highest</font>: 11 12 13 14 15</span> <pre style="font-size:85%;">
+ Value          3     4     5     6     7     8     9    10    11    12    13    14
+ Frequency    784   520   441   584   733   576   504   663   586   951  1356  2140
+ Proportion 0.039 0.026 0.022 0.029 0.036 0.029 0.025 0.033 0.029 0.047 0.067 0.106
+                 
+ Value         15
+ Frequency  10346
+ Proportion 0.513
+ </pre>
+ <hr class="thinhr"> <span style="font-weight:bold">cc</span>: Central Capillary Refille Time <span style='font-family:Verdana;font-size:75%;'>s</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAD0AAAANCAMAAAAtxpZ2AAAAdVBMVEUAAAAKCgoLCwskJCQ6Ojo8PDw+Pj5DQ0NMTExSUlJXV1dgYGBlZWV5eXmFhYWHh4eMjIyYmJilpaWmpqapqamvr6+zs7O2tra9vb3BwcHCwsLFxcXGxsbKysrLy8vT09PZ2dna2trd3d3r6+v09PT7+/v////aKgNIAAAAZElEQVQokdXSNxKAMAxE0cUEk3POYPD9j0gYaCnkit+/kYqFEDFKQQxyAFpJDLL5s2YrVS8pgHyhdd9Gr/I53I2oV3ZqjETdXRjBrqKR1CRd4UnXTMspDM69zH93HIUfI5/s+QDJSGm4DogIVQAAAABJRU5ErkJggg==" alt="image" /></div> <style>
+ .hmisctable293784 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable293784 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable293784 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable293784">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>19596</td><td>611</td><td>20</td><td>0.945</td><td>3.267</td><td>1.67</td><td>1</td><td>2</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :  1  2  3  4  5 ,  <font color="MidnightBlue">highest</font>: 17 18 20 30 60</span> <pre style="font-size:85%;">
+ Value          1     2     3     4     5     6     7     8     9    10    11    12
+ Frequency   1510  5328  6020  3367  1805   802   268   271    45   139     3     7
+ Proportion 0.077 0.272 0.307 0.172 0.092 0.041 0.014 0.014 0.002 0.007 0.000 0.000
+                                                           
+ Value         13    15    16    17    18    20    30    60
+ Frequency      3    19     3     1     1     2     1     1
+ Proportion 0.000 0.001 0.000 0.000 0.000 0.000 0.000 0.000
+ </pre>
+ <hr class="thinhr">
+</div>
+<h3 id="characteristics-of-injury">Characteristics of injury</h3>
+<div class="layout-chunk" data-layout="l-body">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<script type="text/javascript">
+<!--
+    function expand_collapse(id) {
+       var e = document.getElementById(id);
+       var f = document.getElementById(id+"_earrows");
+       if(e.style.display == 'none'){
+          e.style.display = 'block';
+          f.innerHTML = '&#9650';
+       }
+       else {
+          e.style.display = 'none';
+          f.innerHTML = '&#9660';
+       }
+    }
+//-->
+</script>
+<style>
+.earrows {color:silver;font-size:11px;}
+
+fcap {
+ font-family: Verdana;
+ font-size: 12px;
+ color: MidnightBlue
+ }
+
+smg {
+ font-family: Verdana;
+ font-size: 10px;
+ color: &#808080;
+}
+
+hr.thinhr { margin-top: 0.15em; margin-bottom: 0.15em; }
+
+span.xscript {
+position: relative;
+}
+span.xscript sub {
+position: absolute;
+left: 0.1em;
+bottom: -1ex;
+}
+</style>
+ <font color="MidnightBlue"><div align=center><span style="font-weight:bold">Characteristics of injury <br><br> 2  Variables   20207  Observations</span></div></font> <hr class="thinhr"> <span style="font-weight:bold">injurytime</span>: Hours Since Injury <span style='font-family:Verdana;font-size:75%;'>hours</span><div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAJcAAAANCAMAAACTvAxuAAAAt1BMVEUAAAABAQECAgIDAwMEBAQPDw8VFRUfHx84ODg+Pj4/Pz9LS0tPT09QUFBRUVFSUlJTU1NUVFRWVlZaWlpbW1teXl5fX19kZGRnZ2dqampra2txcXF6enqBgYGDg4OEhISIiIiPj4+SkpKcnJyenp6ioqKmpqanp6etra22tra3t7e7u7u+vr6/v7/BwcHCwsLW1tba2trh4eHl5eXm5ubo6Ojq6urr6+vz8/P4+Pj6+vr+/v7///9qzveXAAAAuElEQVQ4je3VyQ6CMBSF4VOqqIiKqDiLOM+ConXg/Z/LFoghbIirsvBP09VdfLmbC8YbwWc5CwHPxivIWX/Xb8Uu9pYNSRW7VEc2JBU83hB04OWreF9UL60vsneUTLgeLVANdCzbkky4lhAu0p91DrI534RrEbk0BW3jKRsUJ1wOoJRBKgRaQZ3LFkWB36Iiwkj4mpa5vZs7xlZdY39rTHr1o187ZZ2zqc2YW3Uzz95Zv2bObCz+fQDRg62npK7SDwAAAABJRU5ErkJggg==" alt="image" /></div> <style>
+ .hmisctable814763 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable814763 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable814763 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable814763">
+ <tr><th>n</th><th>missing</th><th>distinct</th><th>Info</th><th>Mean</th><th>Gmd</th><th>.05</th><th>.10</th><th>.25</th><th>.50</th><th>.75</th><th>.90</th><th>.95</th></tr>
+ <tr><td>20196</td><td>11</td><td>93</td><td>0.972</td><td>2.844</td><td>2.35</td><td>0.5</td><td>1.0</td><td>1.0</td><td>2.0</td><td>4.0</td><td>6.0</td><td>7.0</td></tr>
+ </table>
+ <span style="font-size: 85%;"><font color="MidnightBlue">lowest</font> :  0.10  0.15  0.20  0.25  0.30 ,  <font color="MidnightBlue">highest</font>: 22.00 45.00 48.00 72.00 96.00</span> <hr class="thinhr"> <span style="font-weight:bold">injurytype</span>: Injury type<div style='float: right; text-align: right;'><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAAoAAAANCAMAAACn6Q83AAAAIVBMVEUAAAABAQE3Nzc7OztAQEBERESGhobY2Nja2trr6+v///9hzCcVAAAAOElEQVQImWNg4IQBBgYuGMDDZGeHM1lZIUwODg4mJiDBARZlYYErQGeyIZiMCCYDA8gNzMwgJwAAJzwD60xgI1AAAAAASUVORK5CYII=" alt="image" /></div> <style>
+ .hmisctable671560 {
+ border: none;
+ font-size: 80%;
+ }
+ .hmisctable671560 td {
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ }
+ .hmisctable671560 th {
+ color: MidnightBlue;
+ text-align: center;
+ padding: 0 1ex 0 1ex;
+ font-weight: normal;
+ }
+ </style>
+ <table class="hmisctable671560">
+ <tr><th>n</th><th>missing</th><th>distinct</th></tr>
+ <tr><td>20207</td><td>0</td><td>3</td></tr>
+ </table>
+ <pre style="font-size:85%;">
+ Value                      blunt           penetrating blunt and penetrating
+ Frequency                  11189                  6552                  2466
+ Proportion                 0.554                 0.324                 0.122
+ </pre>
+ <hr class="thinhr">
+</div>
+<h2 id="categorical-variables">Categorical variables</h2>
+<p>We now provide a closer visual examination of the categorical predictors.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Crash2_univar_files/figure-html5/catplot-1.png" width="624" /></p>
+</div>
+<h3 id="categorical-ordinal-plots">Categorical ordinal plots</h3>
+<p>The Glasgow coma score, an ordinal categorical variable, is also displayed separately.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Crash2_univar_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<h2 id="continuous-variables">Continuous variables</h2>
+<p>A closer visual examination of continuous predictors.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Crash2_univar_files/figure-html5/unnamed-chunk-3-1.png" width="864" /></p>
+</div>
+<p>There is evidence of digit preference. Explore further with targeted summaries. A more detailed univariate summaries for the variables of interest are also provided below.</p>
+<h3 id="age">Age</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="Crash2_univar_files/figure-html5/unnamed-chunk-4-1.png" alt="Distribution of subject age [years]" width="768" />
+<p class="caption">
+Figure 1: Distribution of subject age [years]
+</p>
+</div>
+</div>
+<p>Five patients under the age of 17, the inclusion criteria for the study, with one patient aged 1.</p>
+<h3 id="blood-pressure">Blood pressure</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="Crash2_univar_files/figure-html5/unnamed-chunk-5-1.png" alt="Distribution of SBP" width="768" />
+<p class="caption">
+Figure 2: Distribution of SBP
+</p>
+</div>
+</div>
+<h3 id="respiratory-rate">Respiratory rate</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="Crash2_univar_files/figure-html5/unnamed-chunk-6-1.png" alt="Distribution of respiratory rate" width="768" />
+<p class="caption">
+Figure 3: Distribution of respiratory rate
+</p>
+</div>
+</div>
+<h3 id="heart-rate">Heart rate</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="Crash2_univar_files/figure-html5/unnamed-chunk-7-1.png" alt="Distribution of heart rate" width="768" />
+<p class="caption">
+Figure 4: Distribution of heart rate
+</p>
+</div>
+</div>
+<h3 id="central-capillary-refill-time">Central capillary refill time</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="Crash2_univar_files/figure-html5/unnamed-chunk-8-1.png" alt="Distribution of Central capillary refill time" width="768" />
+<p class="caption">
+Figure 5: Distribution of Central capillary refill time
+</p>
+</div>
+</div>
+<h3 id="hours-since-injury">Hours since injury</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-9"></span>
+<img src="Crash2_univar_files/figure-html5/unnamed-chunk-9-1.png" alt="Distribution of hours since injury" width="768" />
+<p class="caption">
+Figure 6: Distribution of hours since injury
+</p>
+</div>
+</div>
+<h2 id="section-session-info">Section session info</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>#&gt; R version 4.1.2 (2021-11-01)
+#&gt; Platform: x86_64-pc-linux-gnu (64-bit)
+#&gt; Running under: Ubuntu 18.04.6 LTS
+#&gt; 
+#&gt; Matrix products: default
+#&gt; BLAS:   /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
+#&gt; LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+#&gt; 
+#&gt; locale:
+#&gt;  [1] LC_CTYPE=C.UTF-8       LC_NUMERIC=C          
+#&gt;  [3] LC_TIME=C.UTF-8        LC_COLLATE=C.UTF-8    
+#&gt;  [5] LC_MONETARY=C.UTF-8    LC_MESSAGES=C.UTF-8   
+#&gt;  [7] LC_PAPER=C.UTF-8       LC_NAME=C             
+#&gt;  [9] LC_ADDRESS=C           LC_TELEPHONE=C        
+#&gt; [11] LC_MEASUREMENT=C.UTF-8 LC_IDENTIFICATION=C   
+#&gt; 
+#&gt; attached base packages:
+#&gt; [1] stats     graphics  grDevices utils     datasets  methods  
+#&gt; [7] base     
+#&gt; 
+#&gt; other attached packages:
+#&gt;  [1] forcats_0.5.1    stringr_1.4.0    purrr_0.3.4     
+#&gt;  [4] readr_2.1.1      tidyr_1.1.4      tibble_3.1.6    
+#&gt;  [7] tidyverse_1.3.1  DT_0.20          kableExtra_1.3.4
+#&gt; [10] gt_0.3.1         naniar_0.6.1     Hmisc_4.6-0     
+#&gt; [13] Formula_1.2-4    survival_3.2-13  lattice_0.20-45 
+#&gt; [16] ggplot2_3.3.5    dplyr_1.0.7      here_1.0.1      
+#&gt; [19] glue_1.6.0      
+#&gt; 
+#&gt; loaded via a namespace (and not attached):
+#&gt;  [1] fs_1.5.2            lubridate_1.8.0     webshot_0.5.2      
+#&gt;  [4] RColorBrewer_1.1-2  httr_1.4.2          rprojroot_2.0.2    
+#&gt;  [7] UpSetR_1.4.0        tools_4.1.2         backports_1.4.1    
+#&gt; [10] utf8_1.2.2          R6_2.5.1            rpart_4.1-15       
+#&gt; [13] DBI_1.1.2           colorspace_2.0-2    nnet_7.3-16        
+#&gt; [16] withr_2.4.3         tidyselect_1.1.1    gridExtra_2.3      
+#&gt; [19] downlit_0.4.0       compiler_4.1.2      cli_3.1.0          
+#&gt; [22] rvest_1.0.2         htmlTable_2.3.0     xml2_1.3.3         
+#&gt; [25] labeling_0.4.2      bookdown_0.24       sass_0.4.0         
+#&gt; [28] scales_1.1.1        checkmate_2.0.0     commonmark_1.7     
+#&gt; [31] systemfonts_1.0.3   digest_0.6.29       foreign_0.8-81     
+#&gt; [34] rmarkdown_2.11      svglite_2.0.0       base64enc_0.1-3    
+#&gt; [37] jpeg_0.1-9          pkgconfig_2.0.3     htmltools_0.5.2    
+#&gt; [40] dbplyr_2.1.1        fastmap_1.1.0       highr_0.9          
+#&gt; [43] readxl_1.3.1        htmlwidgets_1.5.4   rlang_0.4.12       
+#&gt; [46] rstudioapi_0.13     jquerylib_0.1.4     generics_0.1.1     
+#&gt; [49] farver_2.1.0        jsonlite_1.7.2      crosstalk_1.2.0    
+#&gt; [52] distill_1.3         magrittr_2.0.1      patchwork_1.1.1    
+#&gt; [55] Matrix_1.4-0        Rcpp_1.0.7          munsell_0.5.0      
+#&gt; [58] fansi_0.5.0         lifecycle_1.0.1     visdat_0.5.3       
+#&gt; [61] stringi_1.7.6       yaml_2.2.1          plyr_1.8.6         
+#&gt; [64] grid_4.1.2          crayon_1.4.2        haven_2.4.3        
+#&gt; [67] splines_4.1.2       hms_1.1.1           knitr_1.37         
+#&gt; [70] pillar_1.6.4        reprex_2.0.1        evaluate_0.14      
+#&gt; [73] latticeExtra_0.6-29 modelr_0.1.8        data.table_1.14.2  
+#&gt; [76] tzdb_0.2.0          png_0.1-7           vctrs_0.3.8        
+#&gt; [79] cellranger_1.1.0    gtable_0.3.0        assertthat_0.2.1   
+#&gt; [82] cachem_1.0.6        xfun_0.29           broom_0.7.10       
+#&gt; [85] viridisLite_0.4.0   memoise_2.0.1       cluster_2.1.2      
+#&gt; [88] ellipsis_0.3.2</code></pre>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
