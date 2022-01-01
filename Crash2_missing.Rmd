@@ -28,6 +28,7 @@ library(naniar) ## for missing data
 library(gt)
 library(kableExtra)
 library(DT)
+library(gtExtras)
 load(here::here("data", "a_crash2.rda"))
 ```
 
@@ -36,20 +37,31 @@ load(here::here("data", "a_crash2.rda"))
 
 Number and percentage of missing. 
 
-```{r, message =FALSE, warning =FALSE , echo=FALSE}
+```{r, message =FALSE, warning =FALSE , echo=FALSE, fig.cap="Number of missing observations per variable"}
 a_crash2 %>%
   select(-time2death,-ddeath, -entryid, -trandomised, -earlydeath) %>%
   miss_var_summary() %>%
+  mutate(pct_miss2 = pct_miss) %>%
   gt::gt() %>%
     gt::cols_label(
-    variable = md("**Variable**"),
-    n_miss = md("**Missing (count)**"),
-    pct_miss = md("**Missing (%)**")
+    variable =  label(variable) #md("**Variable**"),
+    n_miss = md("n"),
+    pct_miss = md("%"),
+    pct_miss2 = md("% bar")
   ) %>%
   gt::fmt_number(
     columns = c(pct_miss),
     decimals = 2
-  )
+  ) %>%
+  tab_spanner(
+    label = md("**Missing**"),
+    columns = c(n_miss, pct_miss, pct_miss2)
+  ) %>%
+  gt_plt_bar_pct(column = pct_miss2, scaled = TRUE, 
+                 fill = "cornflowerblue", background = "aliceblue") %>%
+   cols_align("center", pct_miss2) %>%
+   cols_width(4 ~ px(125)) %>%
+  gt_theme_espn()
 
 ```
 
